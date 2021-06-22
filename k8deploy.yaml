@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: envtestbackend
+  labels:
+    app: envtestbackend 
+spec:
+  replicas: 1
+  selector:
+    matchlabels:
+      app: envtestbackend
+template:
+  metadata:
+    labels:
+      app: envtestbackend
+  spec:
+    containers:
+    - name: envtestbackend
+    image: ankitmehra92/envtest:backend
+    ports:
+    - containerPort:8080
